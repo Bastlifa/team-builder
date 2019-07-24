@@ -3,7 +3,7 @@ import Card from '../Card/Card'
 import {CardGrid} from '../StyledComps'
 const CardList = props =>
 {
-    const {teamMembers} = props
+    const {teamMembers, setMemberToEdit, memberToEdit} = props
 
     if (teamMembers === [] )
     {
@@ -22,6 +22,10 @@ const CardList = props =>
                     email={teamMember.email} 
                     role={teamMember.role}
                     key={index}
+                    setMemberToEdit={setMemberToEdit}
+                    teamMembers={teamMembers}
+                    memberIndex={index}
+                    memberToEdit={memberToEdit}
                 />)
             }
         </CardGrid>

@@ -14,3 +14,17 @@ export const CardGrid = styled.div`
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 20px;
 `;
+
+export const EditButton = styled.button`
+    border-radius: 6px;
+    border: 1px solid gray;
+    height: 28px;
+    width: 28px;
+    margin-left: 170px;
+`;
+
+export const NameAndEditDiv = styled.div`
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+`;

@@ -9,12 +9,14 @@ function App() {
 
   const [teamMembers, setTeamMembers] = useState([])
 
+  const [memberToEdit, setMemberToEdit] = useState({})
+
   // useEffect(() => {console.log("tm from app", teamMembers)}, [teamMembers])
 
   return (
     <div className="App">
-      <Form teamMembers={teamMembers} setTeamMembers={setTeamMembers} />
-      <CardList teamMembers={teamMembers} />
+      <Form teamMembers={teamMembers} setTeamMembers={setTeamMembers} memberToEdit={memberToEdit}/>
+      <CardList teamMembers={teamMembers} setMemberToEdit={setMemberToEdit} memberToEdit={memberToEdit}/>
     </div>
   );
 }
