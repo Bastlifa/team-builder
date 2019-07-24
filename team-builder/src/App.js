@@ -1,24 +1,20 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react'
+// import { Route, Link } from 'react-router-dom'
+import Form from './components/Form/Form'
+import CardList from './components/CardList/CardList'
+
 import './App.css';
 
 function App() {
+
+  const [teamMembers, setTeamMembers] = useState([])
+
+  // useEffect(() => {console.log("tm from app", teamMembers)}, [teamMembers])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Form teamMembers={teamMembers} setTeamMembers={setTeamMembers} />
+      <CardList teamMembers={teamMembers} />
     </div>
   );
 }
