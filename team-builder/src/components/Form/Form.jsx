@@ -1,12 +1,17 @@
-import React, { useState } from 'react'
-
+import React, { useState, useEffect } from 'react'
+import {StyledSubmit} from '../StyledComps'
 
 const Form = (props) =>
 {
-
-    const {teamMembers, setTeamMembers, memberToEdit} = props
-
+    const {teamMembers, setTeamMembers, memberToEdit, setMemberToEdit, formName} = props
     const [teamMember, setTeamMember] = useState({name: "", email: "", role: ""})
+
+    
+
+    useEffect(() => 
+    {
+        setTeamMember(memberToEdit)
+    }, [memberToEdit])
 
     const handleSubmit = event =>
     {
@@ -17,8 +22,20 @@ const Form = (props) =>
             return;
         }
 
-        setTeamMembers([...teamMembers, teamMember])
-        setTeamMember({name: "", email: "", role: ""})
+        if(formName === "Add Member")
+        {
+            setTeamMembers([...teamMembers, teamMember])
+            setTeamMember({name: "", email: "", role: ""})
+            setMemberToEdit({name: "", email: "", role: ""})
+        }
+        else if (formName === "Edit Member")
+        {
+            console.log("tms",teamMembers)
+            console.log("tm",teamMember)
+            console.log("memberToEdit",memberToEdit)
+
+            setTeamMembers(teamMembers.map( tm => tm === memberToEdit ? teamMember : tm))
+        }
     }
 
     const handleChange = event =>
@@ -28,34 +45,37 @@ const Form = (props) =>
 
     return (
         <form onSubmit={event => handleSubmit(event)}>
-            <label>
-                {`Name: `}
-                <input 
-                    type="text" 
-                    value={teamMember.name} 
-                    name="name" 
-                    onChange={event => handleChange(event)}
-                />
-            </label>
-            <label>
-                {`email: `}
-                <input 
-                    type="text" 
-                    value={teamMember.email} 
-                    name="email" 
-                    onChange={event => handleChange(event)}
-                />
-            </label>
-            <label>
-                {`role: `}
-                <input 
-                    type="text" 
-                    value={teamMember.role} 
-                    name="role" 
-                    onChange={event => handleChange(event)}
-                />
-            </label>
-            <input type="submit" />
+            <fieldset>
+                <legend>{formName}</legend>
+                <label>
+                    {` Name: `}
+                    <input 
+                        type="text" 
+                        value={teamMember.name} 
+                        name="name" 
+                        onChange={event => handleChange(event)}
+                    />
+                </label>
+                <label>
+                    {` email: `}
+                    <input 
+                        type="email" 
+                        value={teamMember.email} 
+                        name="email" 
+                        onChange={event => handleChange(event)}
+                    />
+                </label>
+                <label>
+                    {` Role: `}
+                    <input 
+                        type="text" 
+                        value={teamMember.role} 
+                        name="role" 
+                        onChange={event => handleChange(event)}
+                    />
+                </label>
+                <StyledSubmit type="submit" />
+            </fieldset>
         </form>
     )
 }

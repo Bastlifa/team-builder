@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 
+
 export const CardDiv = styled.div`
     background-color: #404040;
     color: white;
@@ -27,4 +28,12 @@ export const NameAndEditDiv = styled.div`
     display: flex;
     justify-content: space-around;
     margin-top: 10px;
+`;
+
+export const StyledSubmit = styled.input`
+    margin-left: 10px;
+    border-radius: 8px;
+    border: 2px solid gray;
+    background-color: black;
+    color: white;
 `;
