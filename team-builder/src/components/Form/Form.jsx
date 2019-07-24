@@ -6,8 +6,6 @@ const Form = (props) =>
     const {teamMembers, setTeamMembers, memberToEdit, setMemberToEdit, formName, setFormName} = props
     const [teamMember, setTeamMember] = useState({name: "", email: "", role: ""})
 
-    
-
     useEffect(() => 
     {
         setTeamMember(memberToEdit)
@@ -30,10 +28,6 @@ const Form = (props) =>
         }
         else if (formName === "Edit Member")
         {
-            console.log("tms",teamMembers)
-            console.log("tm",teamMember)
-            console.log("memberToEdit",memberToEdit)
-
             setTeamMembers(teamMembers.map( tm => tm === memberToEdit ? teamMember : tm))
             setTeamMember({name: "", email: "", role: ""})
             setMemberToEdit({name: "", email: "", role: ""})

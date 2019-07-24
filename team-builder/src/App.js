@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-// import { Route, Link } from 'react-router-dom'
 import Form from './components/Form/Form'
 import CardList from './components/CardList/CardList'
 
@@ -12,7 +11,6 @@ function App() {
   const [memberToEdit, setMemberToEdit] = useState({name: "", email: "", role: ""})
 
   const [formName, setFormName] = useState("Add Member")
-  // const editMember = (member) => {...teamMembers, }
 
   return (
     <div className="App">
