@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 // import { Route, Link } from 'react-router-dom'
 import Form from './components/Form/Form'
 import CardList from './components/CardList/CardList'
@@ -22,6 +22,7 @@ function App() {
         memberToEdit={memberToEdit} 
         setMemberToEdit={setMemberToEdit}
         formName={formName}
+        setFormName={setFormName}
       />
       <CardList 
         teamMembers={teamMembers} 

@@ -3,7 +3,7 @@ import {StyledSubmit} from '../StyledComps'
 
 const Form = (props) =>
 {
-    const {teamMembers, setTeamMembers, memberToEdit, setMemberToEdit, formName} = props
+    const {teamMembers, setTeamMembers, memberToEdit, setMemberToEdit, formName, setFormName} = props
     const [teamMember, setTeamMember] = useState({name: "", email: "", role: ""})
 
     
@@ -35,6 +35,9 @@ const Form = (props) =>
             console.log("memberToEdit",memberToEdit)
 
             setTeamMembers(teamMembers.map( tm => tm === memberToEdit ? teamMember : tm))
+            setTeamMember({name: "", email: "", role: ""})
+            setMemberToEdit({name: "", email: "", role: ""})
+            setFormName("Add Member")
         }
     }
 
